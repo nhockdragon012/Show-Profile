@@ -1,0 +1,194 @@
+@use '../../styles/index' as *;
+$switch: 26px;
+// $border-color;
+header {
+    .bg-header {
+        width: 100%;
+        height: 300px;
+        background: url('../../assets/bg-header.jpg'), no-repeat center center;
+        background-size: cover;
+        position: relative;
+        .overlay {
+            position: absolute;
+            top: 0;
+            right:0;
+            left:0;
+            bottom:0;
+            background: #282828ab;
+        }
+    }
+    .information-wrapper {
+        width: 980px;
+        position: relative;
+        margin: 0 auto;
+        background: #fff;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 30px;
+        margin-top: -80px;
+        border-radius:20px;
+        box-shadow: 0px 10px 20px rgb(103 118 128 / 40%);
+        .information__intro {
+            @include flex(unset, center);
+            width: 50%;
+            position: relative;
+            &:after {
+                content: "";
+                @include size(1px, 120px);
+                background: #EBF0F2;
+                position: absolute;
+                right: 0;
+            }
+            .intro__image {
+                @include size(150px, 150px);
+                text-align: center;
+                position: relative;
+                border-radius: 20px;
+                overflow: hidden;
+                border: 0.375rem solid #fff;
+                box-shadow: 0px 8px 15px rgb(0 0 0 / 50%);
+                margin-top: -80px;
+                &:before, &:after {
+                    content: "";
+                    @include size(30px, 140px);
+                    background: #000000;
+                    position: absolute;
+                    z-index: 1;
+                }
+                &:before {left: 0};
+                &:after {right:0};
+                img {
+                    @include size(auto, 140px);
+                    transform: scale(1.1);
+                    z-index: -1;
+                }
+            }
+            .intro__box {
+                text-transform: capitalize;
+                margin-top: -80px;
+                .box__name {
+                    font-size: 24px;
+                    font-weight: 600;
+                }
+                .box__job-current {
+                    font-size: 14px;
+                    margin-top: 20px;
+                }
+                .box__icon-social {
+    
+                }
+            }
+            
+        }
+        .information__contact {
+            @include flex(unset, center);
+            width: 50%;
+            padding-left: 30px;
+            .contact__item {
+                width: 50%;
+                p.title {
+                    font-size: 16px;
+                }
+                p.text {
+                    font-size: 14px;
+                    color: #4638ee;
+                    margin-top: 5px;
+                }
+            }
+        }
+        .btn-box-toggle-theme {
+            @include flex(space-between, center);
+            position: absolute;
+            height: 50px;
+            width: 170px;
+            right: 0;
+            bottom: 100%;
+            .btn-theme-mode {
+                @include size(75px, $switch + 6px);
+                position: relative;
+                border-radius: $switch;
+                background: #81b8fd;
+                border: 3px solid #dcdcdc;
+                transition: all .5s ease-in-out;
+                .bg-dark {
+                    float: right;
+                    display: none;
+                    background: url('../../assets/half-moon.png');
+                }
+                .bg-light {
+                    float: left;
+                    display: inline-block;
+                    background: url('../../assets/sun.png');
+                }
+                .bg-light,.bg-dark {
+                    @include size($switch, $switch);
+                    overflow: hidden;
+                    border-radius: $switch;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    background-size: contain;
+                    transition: all .5s ease-in-out;
+                }               
+                .switch {
+                    @include size($switch, $switch);
+                    position: absolute;
+                    top: 0;
+                    left: calc(100% - $switch);
+                    border: 3px solid #81b8fd;
+                    border-radius: $switch;
+                    display: inline-block;
+                    background: #fff;
+                    transition: all .5s ease-in-out;
+                    cursor: pointer;
+                }
+                &.active {
+                    background:#27536b;
+                    .bg-dark {
+                        display: inline-block;
+                    }
+                    .bg-light {
+                        display:none;
+                    }
+                    .switch {
+                        left:0;
+                        border:3px solid #27536b;
+                    }
+                }
+            }         
+            .btn-change-language {
+                @include size(75px, $switch + 6px);
+                border-radius: $switch;
+                border: 3px solid #dcdcdc;
+                background: url('../../assets/vietnam.png');
+                background-size: cover;
+                background-position: center center;
+                background-repeat: no-repeat;
+                cursor: pointer;
+                transition: all .3s ease;
+                &:hover {
+                    background: linear-gradient(0deg, rgb(0 0 0 / 10%), rgb(0 0 0 / 10%)), url('../../assets/vietnam.png');
+                    background-size: cover;
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                }
+                &.active {
+                    background: url('../../assets/united-states.png');
+                    background-size: cover;
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    
+                    &:hover {
+                        background: linear-gradient(0deg, rgb(0 0 0 / 10%), rgb(0 0 0 / 10%)), url('../../assets/united-states.png');
+                        background-size: cover;
+                        background-position: center center;
+                        background-repeat: no-repeat;
+                    }
+                }
+            }  
+        }
+    }
+}
+
+
+// dark : background: #27536b;
+// light: border: 3px solid #81b8fd;

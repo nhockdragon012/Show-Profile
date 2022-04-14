@@ -1,0 +1,11 @@
+import axiosIcon from './axios- color.png'
+import cssIcon from './css-3.png'
+import firebaseIcon from './firebase_icon.png'
+import githubIcon from './github.png'
+import htmlIcon from './html.png'
+import reactRouteDomIcon from './react-router.256x140.png'
+import reactIcon from './react.png'
+import sassIcon from './sass.png'
+import wordpressIcon from './wordpress-logo.png'
+import jsIcon from './js.png'
+export {axiosIcon, cssIcon, firebaseIcon, githubIcon, htmlIcon, reactRouteDomIcon, reactIcon, sassIcon, wordpressIcon, jsIcon}

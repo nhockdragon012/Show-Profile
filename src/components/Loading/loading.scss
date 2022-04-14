@@ -1,0 +1,59 @@
+@use '../../styles/index' as *;
+$width-pacman: 40px;
+.loading-pacman {
+    display: inline-block;
+    position: relative;
+    .pacman {
+        @include size(0, 0);
+        display:inline-block;
+        position: relative;
+        border: $width-pacman solid #5e61ee;
+        border-right: $width-pacman solid transparent;
+        border-radius: $width-pacman;
+        &:nth-child(1) {
+            @include prefix(transform, rotate(0deg));
+            animation: rotateDown .5s ease infinite;
+        }
+        &:nth-child(2) {
+            @include prefix(transform, rotate(360deg));
+            animation: rotateUp .5s ease infinite;
+            left: -$width-pacman*2;
+        }
+        
+    }
+    .dots {
+        @include size(6px, 6px);
+        background: #5e61ee;
+        border-radius: 6px;
+        position: absolute;
+        left: 200px;
+        bottom: $width-pacman;
+        opacity: 1;
+        @include prefix(transform, translate(0px));
+        &:nth-child(3) {
+            animation: linearDot 2s 2s infinite linear;
+        } 
+        &:nth-child(4) {
+            animation: linearDot 2s 1.5s infinite linear;
+        }
+        &:nth-child(5) {
+            animation: linearDot 2s 1s infinite linear;
+        }
+        &:nth-child(6) {
+            animation: linearDot 2s .5s infinite linear;
+        }
+    }
+}
+
+@keyframes rotateUp {
+    0%, 100% {@include prefix(transform, rotate(360deg));}
+    50% {@include prefix(transform, rotate(315deg))}
+}
+@keyframes rotateDown {
+    0%, 100% {@include prefix(transform, rotate(0deg));}
+    50% {@include prefix(transform, rotate(45deg));}
+}
+@keyframes linearDot {
+    0% {@include prefix(transform, translate(0px)); opacity: 1;}
+    100% {@include prefix(transform, translate(-200px));opacity: 0.3;}
+}

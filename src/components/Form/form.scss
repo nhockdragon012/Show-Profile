@@ -1,0 +1,63 @@
+@use '../../styles/index' as *;
+.container__section.contact {
+    background: #fff;
+    border-radius: 20px;
+    margin-top: 30px;
+    box-shadow: $bx-section;
+    .form-contact {
+        padding: 20px;
+        .input-item {
+            display: flex;
+            flex-direction: column;
+            outline: none;
+            &:nth-child(n+2) {
+                margin-top: 10px;
+            }
+            input.input{
+                height: 30px;
+                border-radius: 5px;
+                border: 1px solid #f2f4fa;
+                padding: 0 10px;
+                margin-top: 10px;
+                background: #f2f4fa;
+                &::-webkit-outer-spin-button,
+                &::-webkit-inner-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
+                }
+                &:focus {
+                    outline: none;
+                }
+            }
+            textarea.input {
+                border: 1px solid #f2f4fa;
+                background: #f2f4fa;
+                border-radius: 5px;
+                margin-top: 10px;
+                padding: 10px;
+                box-sizing: border-box;
+                height: 100px;
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+        button.btn-submit {
+            outline: none;
+            border: none;
+            background: #4b42f4;
+            text-transform: uppercase;
+            color: white;
+            padding: 10px 25px;
+            display: block;
+            margin: 0 auto;
+            margin-top: 25px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    }
+}
+
+
+
+    

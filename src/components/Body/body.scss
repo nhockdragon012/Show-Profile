@@ -1,0 +1,41 @@
+@use '../../styles/index' as *;
+
+.container {
+    @include flex(unset, unset);
+    width: 1200px;
+    margin: auto;
+    margin-top: 60px;
+    .row {
+        &.md-8 {
+            width: (8/12) * 100%;
+            padding-right: 20px;
+        }
+        &.md-4 {
+            width: 4/12 * 100%;
+        }
+        &.md-12 {
+            width: 100%;
+        }
+    }
+    .container__section {
+        .title-box {
+            @include flex(unset, baseline);
+            padding: 20px;
+            border-bottom: 2px solid $header-bt-color;
+            img.title-icon {
+                @include size(26px, 26px);
+                filter: invert(19%) sepia(57%) saturate(3958%) hue-rotate(239deg) brightness(111%) contrast(99%);
+                margin-right: 5px;
+            }
+        }
+    }
+}
+
+@keyframes animation {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

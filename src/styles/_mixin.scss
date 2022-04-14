@@ -1,0 +1,17 @@
+@mixin size($w, $h) {
+    width: $w;
+    height: $h;
+}
+@mixin flex($justify-content, $align-items) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: $justify-content;
+    align-items: $align-items;
+}
+@mixin prefix($prop, $value) {
+    #{$prop}: $value;
+    -webkit-#{$prop}: $value;
+    -moz-#{$prop}: $value;
+    -ms-#{$prop}: $value;
+    -o-#{$prop}: $value;
+}

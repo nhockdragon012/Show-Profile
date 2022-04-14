@@ -1,0 +1,23 @@
+@use '../../styles/index' as *;
+
+.container__section.hobby {
+    background: #fff;
+    box-shadow: $bx-section;
+    border-radius: 20px;
+    margin-top: 30px;
+    .hobby-box {
+        padding: 20px;
+        .hobby-item {
+            @include flex(unset, flex-end);
+            &:nth-child(n+2) {
+                margin-top: 15px;
+            }
+            img.icon {
+                @include size(32px, 32px)
+            }
+            p.text {
+                margin-left: 10px;
+            }
+        }
+    }
+}

@@ -1,0 +1,111 @@
+@use '../../styles/index' as * ;
+$conic-gradient-color: rgb(94 97 238 / 1%), rgb(94 97 238) 0.1turn, rgb(94 97 238) 0.15turn, rgb(94 97 238 / 1%) 0.25turn; 
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: true;
+}
+
+.container__section.skills {    
+    margin-top: 30px;
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: $bx-section;
+    .skills__box {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+        .skills__item {
+            padding: 20px;
+            &.programming {
+                grid-column: 1/3;
+                border-bottom: 1px solid #f2f4fa;
+            }
+            &.design {
+                grid-column: 1/2;
+                border-right: 1px solid #f2f4fa;
+            }
+            &.office {
+                grid-column: 2/3;
+            }
+            h4.skills__title {
+                font-size: 20px;
+                font-weight: 400;
+                color: #000;
+                margin-bottom: 10px;
+                padding: 10px;
+                text-transform: uppercase;
+                display: inline-block;
+                position: relative;
+                border: 1px solid;
+                border-image: conic-gradient(from var(--angle), $conic-gradient-color) 1;
+                animation: rotate 5s linear infinite forwards;
+                @keyframes rotate {
+                    0% {
+                        --angle: 0deg;
+                    }
+                    25% {
+                        --angle: 90deg
+                    }
+                    50% {
+                        --angle: 180deg
+                    }
+                    75% {
+                        --angle: 270deg
+                    }
+                    100% {
+                        --angle: 360deg
+                    }
+                }
+            }
+            .skills__content {
+                @include flex(unset, baseline);
+                text-align: center;
+                .skill-item {
+                    max-width: 100px;
+                    padding: 5px;
+                    img.icon {
+                        @include size(42px, 42px);
+                        object-fit: contain;
+                    }
+                    p.text {
+                        font-size: 14px;
+                        text-align: center;
+                    }
+                }
+            }
+            &.design p.text {width: 70px;}
+        }
+    }                 
+    
+        
+        
+}
+    
+        
+
+
+
+/*
+    
+conic-gradient(from 90deg, rgba(168, 239, 255, 0.1), rgba(168, 239, 255, 1) 0.1turn, rgba(168, 239, 255, 1) 0.15turn, rgba(168, 239, 255, 0.1) 0.25turn) 30
+
+conic-gradient(from 0deg, rgb(94 97 238 / 1%), rgb(94 97 238) 0.1turn, rgb(94 97 238) 0.15turn, rgb(94 97 238 / 1%) 0.25turn)
+syntax: '<angle>';
+  initial-value: 90deg;
+  inherits: true;
+  --d: 2500ms;
+	--angle: 90deg;
+	--gradX: 100%;
+	--gradY: 50%;
+	--c1: rgba(168, 239, 255, 1);
+	--c2: rgba(168, 239, 255, 0.1);
+
+    
+@keyframes borderRotate {
+	100% {
+		--angle: 420deg;
+	}
+}
+*/
