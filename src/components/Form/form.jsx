@@ -5,10 +5,11 @@ import database from '../firebase'
 import {ref, set, onValue} from 'firebase/database'
 function Form({language}) {
     const [inputName, setInputName] = useState('')
+    const [inputEmail, setInputEmail] = useState('')
     const [inputPhone, setInputPhone] = useState('')
     const [messenger, setMessenger] = useState('')
     const [id, setId] = useState()
-
+    const [isSuccess, setIsSuccess] = useState()
     //Back-end
     useEffect(() => {
         const getIdFirebase = async () => {
@@ -20,24 +21,26 @@ function Form({language}) {
         getIdFirebase()
     },[])
     
-    const handleSubmit = (inputName, inputPhone, messenger, id) => {
-        if(inputName && inputPhone && messenger) {
+    const handleSubmit = (inputName, inputEmail, inputPhone, messenger, id) => {
+        if(inputName && messenger  && (inputPhone|| inputEmail) ) {
             const dbRef = ref(database, 'form/contact' + id)
             set(dbRef, {
                 id: id,
                 name: inputName,
+                email: inputEmail,
                 phoneNumber: inputPhone,
                 messenger: messenger
             })
             console.log('input: ', inputName, inputPhone, messenger);
             setInputName('')
+            setInputEmail('')
             setInputPhone('')
             setMessenger('')
+            setIsSuccess('success')
         }else {
-            alert('Vui lòng nhập đầy đủ thông tin')
+            setIsSuccess('error')
         }
     }
-
     return (
         <div className="container__section contact">
             <div className="title-box">
@@ -53,6 +56,16 @@ function Form({language}) {
                         id="input--name"
                         value={inputName}
                         onChange={e => setInputName(e.target.value)}
+                    />
+                </div>
+                <div className="input-item">
+                    <label htmlFor="input--email">Email:</label>
+                    <input
+                        type="email" 
+                        className="input" 
+                        id="input--email"
+                        value={inputEmail} 
+                        onChange={e => setInputEmail(e.target.value)}
                     />
                 </div>
                 <div className="input-item">
@@ -76,7 +89,17 @@ function Form({language}) {
                         onChange={e => setMessenger(e.target.value)}
                     />
                 </div>
-                <button className="btn-submit" onClick={() => handleSubmit(inputName, inputPhone, messenger, id)}>Liên hệ</button>
+                <button className="btn-submit" onClick={() => handleSubmit(inputName, inputEmail, inputPhone, messenger, id)}>{language === 'vi' ? 'Gửi': 'Send'}</button>
+                {
+                isSuccess === 'success' && <div className="aler-form is-success">
+                    <p className="alert" onClick={() => setIsSuccess('')}>{language === 'vi' ? 'Cảm ơn, mình sẽ liên hệ lại bạn ngay': 'Thank you, I will contact you soon'}</p>
+                </div>
+                }
+                {
+                isSuccess === 'error' && <div className="aler-form is-error">
+                    <p className="alert" onClick={() => setIsSuccess('')}>{language === 'vi' ? 'Oops, vui lòng kiểm tra lại thông tin': 'Oops, Something is wrong, try enter your information'}</p>
+                </div>
+                }
             </div>
         </div>
     )
