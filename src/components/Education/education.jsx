@@ -1,9 +1,7 @@
 import './education.scss'
-import {memo, useContext} from 'react'
+import {memo} from 'react'
 import iconEducation from '../../assets/iconTitle/education.png'
-import {IsToggle} from '../ToggleContext'
-function Education({data}) {
-    const {language} = useContext(IsToggle)
+function Education({data, language}) {
     return (
         <div className="container__section education">  
             <div className="title-box">

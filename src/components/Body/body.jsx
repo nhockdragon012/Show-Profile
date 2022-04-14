@@ -26,15 +26,15 @@ function Body() {
         <div className="container">
                 {data && data.length > 0 && <>
                     <div className="row md-8">
-                        <AboutMe data={data[1]}/> 
-                        <Skills data={data[3]}/>
-                        <Project data={data[4]}/>
+                        <AboutMe data={data[1]} language={language}/> 
+                        <Skills data={data[3]} language={language}/>
+                        <Project data={data[4]} language={language}/>
                     </div>
                     <div className="row md-4">
-                        <CareerGoals data={data[2]}/>
+                        <CareerGoals data={data[2]} language={language}/>
                         <Form language={language}/>
-                        <Education data={data[5]}/>
-                        <Hobbies data={data[6]} />
+                        <Education data={data[5]} language={language}/>
+                        <Hobbies data={data[6]} language={language}/>
                     </div>
                     <div className="row md-12">
                         

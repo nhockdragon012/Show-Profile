@@ -1,9 +1,7 @@
 import './skills.scss'
-import {memo, useContext} from 'react'
+import {memo} from 'react'
 import iconSkills from '../../assets/iconTitle/skills.png'
-import {IsToggle} from '../ToggleContext'
-function Skills({data}) {
-    const {language} = useContext(IsToggle)
+function Skills({data, language}) {
     return (
         <div className="container__section skills ">
             <div className="title-box">

@@ -1,14 +1,10 @@
 import './aboutMe.scss'
-import {memo, useContext} from 'react'
+import {memo} from 'react'
 import iconWebDesign from '../../assets/icon/web design.png'
 import iconResponsive from '../../assets/icon/ui-design.png'
 import iconCode from '../../assets/icon/coding.png'
 import iconAbout from '../../assets/iconTitle/about me.png'
-import {IsToggle} from '../ToggleContext'
-
-function AboutMe({data, reveal}) {
-    const {language} = useContext(IsToggle)
-
+function AboutMe({data, language}) {
     return (
         <div className="container__section about-me">
             <div className="text-box">

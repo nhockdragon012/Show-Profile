@@ -1,9 +1,7 @@
-import React, {memo, useContext} from 'react'
+import React, {memo} from 'react'
 import './project.scss'
 import iconProject from '../../assets/iconTitle/project.png'
-import {IsToggle} from '../ToggleContext'
-function Project({data}) {
-    const {language} = useContext(IsToggle)
+function Project({data, language}) {
     return (
         <div className="container__section project ">
             <div className="title-box">

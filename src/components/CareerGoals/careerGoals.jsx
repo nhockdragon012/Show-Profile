@@ -1,10 +1,7 @@
 import './careerGoals.scss'
-import {memo, useContext} from 'react'
+import {memo} from 'react'
 import iconCareer from '../../assets/iconTitle/target.png'
-import {IsToggle} from '../ToggleContext'
-function CareerGoals({data}) {
-    const {language} = useContext(IsToggle)
-    
+function CareerGoals({data, language}) {
     return (
         <div className="container__section career-goals ">
             <div className="title-box">

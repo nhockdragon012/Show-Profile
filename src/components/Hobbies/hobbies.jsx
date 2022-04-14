@@ -1,9 +1,7 @@
 import iconHobby from '../../assets/iconTitle/hobbies.png'
 import './hobbies.scss'
-import {IsToggle} from '../ToggleContext'
-import {memo, useContext} from 'react'
-function Hobbies({data}) {
-    const {language} = useContext(IsToggle)
+import {memo} from 'react'
+function Hobbies({data, language}) {
     return (
         <div className="container__section hobby">
             <div className="title-box">
